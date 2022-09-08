@@ -23,10 +23,10 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.objectweb.asm.ClassReader;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.impl.launch.FabricLauncherBase;
-import net.fabricmc.loader.impl.util.LoaderUtil;
+import net.ornithemc.api.EnvType;
+import net.ornithemc.loader.api.OrnitheLoader;
+import net.ornithemc.loader.impl.launch.OrnitheLauncherBase;
+import net.ornithemc.loader.impl.util.LoaderUtil;
 
 @Deprecated
 public class JavaLanguageAdapter implements LanguageAdapter {
@@ -34,18 +34,18 @@ public class JavaLanguageAdapter implements LanguageAdapter {
 		// TODO: Be a bit more involved
 		switch (itfString) {
 		case "net/fabricmc/api/ClientModInitializer":
-			if (FabricLoader.getInstance().getEnvironmentType() == EnvType.SERVER) {
+			if (OrnitheLoader.getInstance().getEnvironmentType() == EnvType.SERVER) {
 				return false;
 			}
 
 			break;
 		case "net/fabricmc/api/DedicatedServerModInitializer":
-			if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
+			if (OrnitheLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
 				return false;
 			}
 		}
 
-		InputStream stream = FabricLauncherBase.getLauncher().getResourceAsStream(LoaderUtil.getClassFileName(itfString));
+		InputStream stream = OrnitheLauncherBase.getLauncher().getResourceAsStream(LoaderUtil.getClassFileName(itfString));
 		if (stream == null) return false;
 
 		ClassReader reader = new ClassReader(stream);
@@ -62,7 +62,7 @@ public class JavaLanguageAdapter implements LanguageAdapter {
 	}
 
 	public static Class<?> getClass(String className, Options options) throws ClassNotFoundException, IOException {
-		InputStream stream = FabricLauncherBase.getLauncher().getResourceAsStream(LoaderUtil.getClassFileName(className));
+		InputStream stream = OrnitheLauncherBase.getLauncher().getResourceAsStream(LoaderUtil.getClassFileName(className));
 		if (stream == null) throw new ClassNotFoundException("Could not find or load class " + className);
 
 		ClassReader reader = new ClassReader(stream);
@@ -82,7 +82,7 @@ public class JavaLanguageAdapter implements LanguageAdapter {
 		}
 
 		stream.close();
-		return FabricLauncherBase.getClass(className);
+		return OrnitheLauncherBase.getClass(className);
 	}
 
 	@Override

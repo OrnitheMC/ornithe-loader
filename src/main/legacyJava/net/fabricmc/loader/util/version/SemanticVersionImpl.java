@@ -18,9 +18,9 @@ package net.fabricmc.loader.util.version;
 
 import java.util.Optional;
 
-import net.fabricmc.loader.api.SemanticVersion;
-import net.fabricmc.loader.api.Version;
-import net.fabricmc.loader.api.VersionParsingException;
+import net.ornithemc.loader.api.SemanticVersion;
+import net.ornithemc.loader.api.Version;
+import net.ornithemc.loader.api.VersionParsingException;
 
 /**
  * @deprecated Internal API, do not use

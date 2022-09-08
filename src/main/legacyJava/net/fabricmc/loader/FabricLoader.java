@@ -20,21 +20,21 @@ import java.io.File;
 import java.util.Collection;
 import java.util.List;
 
-import net.fabricmc.loader.impl.FabricLoaderImpl;
+import net.ornithemc.loader.impl.OrnitheLoaderImpl;
 
 /**
  * The main class for mod loading operations.
  *
- * @deprecated Use {@link net.fabricmc.loader.api.FabricLoader}
+ * @deprecated Use {@link net.ornithemc.loader.api.OrnitheLoader}
  */
 @Deprecated
-public abstract class FabricLoader implements net.fabricmc.loader.api.FabricLoader {
+public abstract class FabricLoader implements net.ornithemc.loader.api.OrnitheLoader {
 	/**
-	 * @deprecated Use {@link net.fabricmc.loader.api.FabricLoader#getInstance()} where possible,
+	 * @deprecated Use {@link net.ornithemc.loader.api.OrnitheLoader#getInstance()} where possible,
 	 * report missing areas as an issue.
 	 */
 	@Deprecated
-	public static final FabricLoader INSTANCE = FabricLoaderImpl.InitHelper.get();
+	public static final FabricLoader INSTANCE = OrnitheLoaderImpl.InitHelper.get();
 
 	public File getModsDirectory() {
 		return getGameDir().resolve("mods").toFile();

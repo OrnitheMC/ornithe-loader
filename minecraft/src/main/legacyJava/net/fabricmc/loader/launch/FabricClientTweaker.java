@@ -17,8 +17,8 @@
 package net.fabricmc.loader.launch;
 
 /**
- * @deprecated Use {@link net.fabricmc.loader.impl.game.minecraft.launchwrapper.FabricClientTweaker} instead
+ * @deprecated Use {@link net.ornithemc.loader.impl.game.minecraft.launchwrapper.OrnitheClientTweaker} instead
  */
 @Deprecated
-public final class FabricClientTweaker extends net.fabricmc.loader.impl.game.minecraft.launchwrapper.FabricClientTweaker {
+public final class FabricClientTweaker extends net.ornithemc.loader.impl.game.minecraft.launchwrapper.OrnitheClientTweaker {
 }

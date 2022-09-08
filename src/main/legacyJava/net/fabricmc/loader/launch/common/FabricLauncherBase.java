@@ -25,16 +25,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.impl.util.UrlUtil;
+import net.ornithemc.api.EnvType;
+import net.ornithemc.loader.api.OrnitheLoader;
+import net.ornithemc.loader.impl.util.UrlUtil;
 
 /**
  * @deprecated Internal API, do not use
  */
 @Deprecated
 public class FabricLauncherBase implements FabricLauncher {
-	private final net.fabricmc.loader.impl.launch.FabricLauncher parent = net.fabricmc.loader.impl.launch.FabricLauncherBase.getLauncher();
+	private final net.ornithemc.loader.impl.launch.OrnitheLauncher parent = net.ornithemc.loader.impl.launch.OrnitheLauncherBase.getLauncher();
 
 	public static Class<?> getClass(String className) throws ClassNotFoundException {
 		return Class.forName(className, true, getLauncher().getTargetClassLoader());
@@ -56,7 +56,7 @@ public class FabricLauncherBase implements FabricLauncher {
 
 	@Override
 	public EnvType getEnvironmentType() {
-		return FabricLoader.getInstance().getEnvironmentType();
+		return OrnitheLoader.getInstance().getEnvironmentType();
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class FabricLauncherBase implements FabricLauncher {
 
 	@Override
 	public boolean isDevelopment() {
-		return FabricLoader.getInstance().isDevelopmentEnvironment();
+		return OrnitheLoader.getInstance().isDevelopmentEnvironment();
 	}
 
 	@Override

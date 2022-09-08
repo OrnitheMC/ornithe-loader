@@ -31,9 +31,9 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import net.fabricmc.loader.impl.game.minecraft.McVersion;
-import net.fabricmc.loader.impl.game.minecraft.McVersionLookup;
-import net.fabricmc.loader.impl.lib.gson.JsonReader;
+import net.ornithemc.loader.impl.game.minecraft.McVersion;
+import net.ornithemc.loader.impl.game.minecraft.McVersionLookup;
+import net.ornithemc.loader.impl.lib.gson.JsonReader;
 
 public final class McVersionLookupTest {
 	public static void main(String[] args) throws IOException {

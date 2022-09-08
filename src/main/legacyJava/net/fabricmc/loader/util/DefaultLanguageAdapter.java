@@ -16,9 +16,9 @@
 
 package net.fabricmc.loader.util;
 
-import net.fabricmc.loader.api.LanguageAdapter;
-import net.fabricmc.loader.api.LanguageAdapterException;
-import net.fabricmc.loader.api.ModContainer;
+import net.ornithemc.loader.api.LanguageAdapter;
+import net.ornithemc.loader.api.LanguageAdapterException;
+import net.ornithemc.loader.api.ModContainer;
 
 /**
  * @deprecated Use {@link LanguageAdapter} instead.

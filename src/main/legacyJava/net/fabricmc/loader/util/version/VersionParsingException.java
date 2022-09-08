@@ -16,7 +16,7 @@
 
 package net.fabricmc.loader.util.version;
 
-/** @deprecated Replaced by {@link net.fabricmc.loader.api.VersionParsingException} */
+/** @deprecated Replaced by {@link net.ornithemc.loader.api.VersionParsingException} */
 @SuppressWarnings("serial")
 @Deprecated
 public class VersionParsingException extends Exception {

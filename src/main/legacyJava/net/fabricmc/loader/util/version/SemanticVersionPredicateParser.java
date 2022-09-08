@@ -18,8 +18,8 @@ package net.fabricmc.loader.util.version;
 
 import java.util.function.Predicate;
 
-import net.fabricmc.loader.api.VersionParsingException;
-import net.fabricmc.loader.api.metadata.version.VersionPredicate;
+import net.ornithemc.loader.api.VersionParsingException;
+import net.ornithemc.loader.api.metadata.version.VersionPredicate;
 
 /**
  * @deprecated Internal API, do not use

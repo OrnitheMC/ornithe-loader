@@ -35,13 +35,13 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import net.fabricmc.loader.api.SemanticVersion;
-import net.fabricmc.loader.api.metadata.CustomValue;
-import net.fabricmc.loader.impl.metadata.DependencyOverrides;
-import net.fabricmc.loader.impl.metadata.LoaderModMetadata;
-import net.fabricmc.loader.impl.metadata.ModMetadataParser;
-import net.fabricmc.loader.impl.metadata.ParseMetadataException;
-import net.fabricmc.loader.impl.metadata.VersionOverrides;
+import net.ornithemc.loader.api.SemanticVersion;
+import net.ornithemc.loader.api.metadata.CustomValue;
+import net.ornithemc.loader.impl.metadata.DependencyOverrides;
+import net.ornithemc.loader.impl.metadata.LoaderModMetadata;
+import net.ornithemc.loader.impl.metadata.ModMetadataParser;
+import net.ornithemc.loader.impl.metadata.ParseMetadataException;
+import net.ornithemc.loader.impl.metadata.VersionOverrides;
 
 @Disabled // TODO needs fixing.
 final class V1ModJsonParsingTests {

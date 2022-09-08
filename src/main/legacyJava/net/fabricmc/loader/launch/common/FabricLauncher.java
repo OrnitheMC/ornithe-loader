@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Collection;
 
-import net.fabricmc.api.EnvType;
+import net.ornithemc.api.EnvType;
 
 /**
  * @deprecated Internal API, do not use

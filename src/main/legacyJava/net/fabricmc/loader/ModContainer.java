@@ -21,14 +21,14 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.util.List;
 
-import net.fabricmc.loader.impl.util.UrlUtil;
 import net.fabricmc.loader.metadata.LoaderModMetadata;
+import net.ornithemc.loader.impl.util.UrlUtil;
 
 /**
- * @deprecated Use {@link net.fabricmc.loader.api.ModContainer} instead
+ * @deprecated Use {@link net.ornithemc.loader.api.ModContainer} instead
  */
 @Deprecated
-public abstract class ModContainer implements net.fabricmc.loader.api.ModContainer {
+public abstract class ModContainer implements net.ornithemc.loader.api.ModContainer {
 	public abstract LoaderModMetadata getInfo();
 	protected abstract List<Path> getCodeSourcePaths();
 

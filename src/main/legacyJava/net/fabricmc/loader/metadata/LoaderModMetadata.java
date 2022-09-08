@@ -19,8 +19,8 @@ package net.fabricmc.loader.metadata;
 import java.util.Collection;
 import java.util.List;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.loader.api.metadata.ModMetadata;
+import net.ornithemc.api.EnvType;
+import net.ornithemc.loader.api.metadata.ModMetadata;
 
 /**
  * @deprecated Use {@link ModMetadata} instead

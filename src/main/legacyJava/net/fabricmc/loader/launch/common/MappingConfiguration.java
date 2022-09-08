@@ -16,8 +16,8 @@
 
 package net.fabricmc.loader.launch.common;
 
-import net.fabricmc.loader.impl.launch.FabricLauncherBase;
 import net.fabricmc.mapping.tree.TinyTree;
+import net.ornithemc.loader.impl.launch.OrnitheLauncherBase;
 
 /**
  * @deprecated Internal API, do not use
@@ -25,6 +25,6 @@ import net.fabricmc.mapping.tree.TinyTree;
 @Deprecated
 public class MappingConfiguration {
 	public TinyTree getMappings() {
-		return FabricLauncherBase.getLauncher().getMappingConfiguration().getMappings();
+		return OrnitheLauncherBase.getLauncher().getMappingConfiguration().getMappings();
 	}
 }

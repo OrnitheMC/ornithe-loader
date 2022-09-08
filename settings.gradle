@@ -1,13 +1,17 @@
 pluginManagement {
 	repositories {
 		maven {
+			name = "Ornithe"
+			url = "https://maven.ornithemc.net/releases"
+		}
+		maven {
 			url = "https://maven.fabricmc.net"
 			name = "FabricMC"
 		}
 		gradlePluginPortal()
 	}
 }
-rootProject.name='fabric-loader'
+rootProject.name='ornithe-loader'
 
 include "minecraft"
 

@@ -69,7 +69,7 @@
 		<module name="UnusedImports"/>
 
 		<module name="ImportOrder">
-			<property name="groups" value="java,javax,*,net.minecraft,net.fabricmc"/>
+			<property name="groups" value="java,javax,*,net.minecraft,net.fabricmc,net.ornithemc"/>
 			<property name="ordered" value="false"/><!-- the plugin orders alphabetically without considering separators.. -->
 			<property name="separated" value="true"/>
 			<property name="option" value="top"/>
@@ -166,7 +166,7 @@
 	</module>
 
 	<module name="SuppressionSingleFilter">
-		<property name="files" value="net[\\/]fabricmc[\\/]loader[\\/]impl[\\/]lib[\\/]"/>
+		<property name="files" value="net[\\/]ornithemc[\\/]loader[\\/]impl[\\/]lib[\\/]"/>
 		<property name="checks" value=".*"/>
 	</module>
 </module>
