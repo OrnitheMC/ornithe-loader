@@ -78,7 +78,7 @@ public abstract class OrnitheTweaker extends OrnitheLauncherBase implements ITwe
 	@Override
 	public String getTargetNamespace() {
 		// TODO: Won't work outside of Yarn
-		return isDevelopment ? "named" : "intermediary";
+		return isDevelopment ? "named" : "calamus";
 	}
 
 	@Override
