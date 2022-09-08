@@ -28,9 +28,12 @@ import java.util.zip.ZipError;
 
 import net.fabricmc.mapping.tree.TinyMappingFactory;
 import net.fabricmc.mapping.tree.TinyTree;
+
 import net.ornithemc.loader.impl.util.ManifestUtil;
 import net.ornithemc.loader.impl.util.log.Log;
 import net.ornithemc.loader.impl.util.log.LogCategory;
+
+import net.ornithemc.nester.mapping.Nests;
 
 public final class MappingConfiguration {
 	private boolean initialized;
@@ -38,6 +41,7 @@ public final class MappingConfiguration {
 	private String gameId;
 	private String gameVersion;
 	private TinyTree mappings;
+	private Nests nests;
 
 	public String getGameId() {
 		initialize();
@@ -64,8 +68,14 @@ public final class MappingConfiguration {
 		return mappings;
 	}
 
+	public Nests getNests() {
+		initialize();
+
+		return nests;
+	}
+
 	public String getTargetNamespace() {
-		return OrnitheLauncherBase.getLauncher().isDevelopment() ? "named" : "intermediary";
+		return OrnitheLauncherBase.getLauncher().isDevelopment() ? "named" : "calamus";
 	}
 
 	public boolean requiresPackageAccessHack() {
@@ -101,9 +111,29 @@ public final class MappingConfiguration {
 			}
 		}
 
+		url = MappingConfiguration.class.getClassLoader().getResource("mappings/mappings.nest");
+
+		if (url != null) {
+			try {
+				URLConnection connection = url.openConnection();
+
+				try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+					long time = System.currentTimeMillis();
+					nests = Nests.of(reader);
+					Log.debug(LogCategory.MAPPINGS, "Loading nests took %d ms", System.currentTimeMillis() - time);
+				}
+			} catch (IOException | ZipError e) {
+				throw new RuntimeException("Error reading "+url, e);
+			}
+		}
+
 		if (mappings == null) {
 			Log.info(LogCategory.MAPPINGS, "Mappings not present!");
 			mappings = TinyMappingFactory.EMPTY_TREE;
+		}
+		if (nests == null) {
+			Log.info(LogCategory.MAPPINGS, "Nests not present!");
+			nests = Nests.empty();
 		}
 
 		initialized = true;

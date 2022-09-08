@@ -232,7 +232,7 @@ public class MinecraftGameProvider implements GameProvider {
 			throw ExceptionUtil.wrap(e);
 		}
 
-		// expose obfuscated jar locations for mods to more easily remap code from obfuscated to intermediary
+		// expose obfuscated jar locations for mods to more easily remap code from obfuscated to calamus
 		ObjectShare share = OrnitheLoaderImpl.INSTANCE.getObjectShare();
 		share.put("ornithe-loader:inputGameJar", gameJars.get(0)); // deprecated
 		share.put("ornithe-loader:inputGameJars", gameJars);

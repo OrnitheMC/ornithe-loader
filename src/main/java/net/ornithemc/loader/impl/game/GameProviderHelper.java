@@ -40,6 +40,7 @@ import net.fabricmc.tinyremapper.InputTag;
 import net.fabricmc.tinyremapper.NonClassCopyMode;
 import net.fabricmc.tinyremapper.OutputConsumerPath;
 import net.fabricmc.tinyremapper.TinyRemapper;
+
 import net.ornithemc.api.EnvType;
 import net.ornithemc.loader.impl.OrnitheLoaderImpl;
 import net.ornithemc.loader.impl.FormattedException;
@@ -52,6 +53,9 @@ import net.ornithemc.loader.impl.util.UrlUtil;
 import net.ornithemc.loader.impl.util.log.Log;
 import net.ornithemc.loader.impl.util.log.LogCategory;
 import net.ornithemc.loader.impl.util.mappings.TinyRemapperMappingsHelper;
+
+import net.ornithemc.nester.Nester;
+import net.ornithemc.nester.mapping.Nests;
 
 public final class GameProviderHelper {
 	private GameProviderHelper() { }
@@ -178,6 +182,7 @@ public final class GameProviderHelper {
 
 		String targetNamespace = mappingConfig.getTargetNamespace();
 		TinyTree mappings = mappingConfig.getMappings();
+		Nests nests = mappingConfig.getNests();
 
 		if (mappings == null
 				|| !mappings.getMetadata().getNamespaces().contains(targetNamespace)) {
@@ -187,6 +192,7 @@ public final class GameProviderHelper {
 
 		Path deobfJarDir = getDeobfJarDir(gameDir, gameId, gameVersion);
 		List<Path> inputFiles = new ArrayList<>(inputFileMap.size());
+		List<Path> nestedFiles = new ArrayList<>(inputFileMap.size());
 		List<Path> outputFiles = new ArrayList<>(inputFileMap.size());
 		List<Path> tmpFiles = new ArrayList<>(inputFileMap.size());
 		Map<String, Path> ret = new HashMap<>(inputFileMap.size());
@@ -195,6 +201,8 @@ public final class GameProviderHelper {
 		for (Map.Entry<String, Path> entry : inputFileMap.entrySet()) {
 			String name = entry.getKey();
 			Path inputFile = entry.getValue();
+			String nestedJarFilename = String.format("%s-nested.jar", name);
+			Path nestedFile = deobfJarDir.resolve(nestedJarFilename);
 			// TODO: allow versioning mappings?
 			String deobfJarFilename = String.format("%s-%s.jar", name, targetNamespace);
 			Path outputFile = deobfJarDir.resolve(deobfJarFilename);
@@ -212,6 +220,7 @@ public final class GameProviderHelper {
 			}
 
 			inputFiles.add(inputFile);
+			nestedFiles.add(nestedFile);
 			outputFiles.add(outputFile);
 			tmpFiles.add(tmpFile);
 			ret.put(name, outputFile);
@@ -235,7 +244,7 @@ public final class GameProviderHelper {
 
 		try {
 			Files.createDirectories(deobfJarDir);
-			deobfuscate0(inputFiles, outputFiles, tmpFiles, mappings, targetNamespace, launcher);
+			deobfuscate0(inputFiles, nestedFiles, outputFiles, tmpFiles, mappings, nests, targetNamespace, launcher);
 		} catch (IOException e) {
 			throw new RuntimeException("error remapping game jars "+inputFiles, e);
 		}
@@ -262,7 +271,20 @@ public final class GameProviderHelper {
 		return ret.resolve(versionDirName.toString().replaceAll("[^\\w\\-\\. ]+", "_"));
 	}
 
-	private static void deobfuscate0(List<Path> inputFiles, List<Path> outputFiles, List<Path> tmpFiles, TinyTree mappings, String targetNamespace, OrnitheLauncher launcher) throws IOException {
+	private static void deobfuscate0(List<Path> inputFiles, List<Path> nestedFiles, List<Path> outputFiles, List<Path> tmpFiles, TinyTree mappings, Nests nests, String targetNamespace, OrnitheLauncher launcher) throws IOException {
+		boolean doNesting = !nests.get().isEmpty();
+
+		if (doNesting) {
+			for (int i = 0; i < inputFiles.size(); i++) {
+				Path inputFile = inputFiles.get(i);
+				Path nestedFile = nestedFiles.get(i);
+
+				if (!Files.exists(nestedFile)) {
+					Nester.fixJar(inputFile, nestedFile, nests);
+				}
+			}
+		}
+
 		TinyRemapper remapper = TinyRemapper.newRemapper()
 				.withMappings(TinyRemapperMappingsHelper.create(mappings, "official", targetNamespace))
 				.rebuildSourceFilenames(true)
@@ -284,7 +306,7 @@ public final class GameProviderHelper {
 
 		try {
 			for (int i = 0; i < inputFiles.size(); i++) {
-				Path inputFile = inputFiles.get(i);
+				Path inputFile = doNesting ? nestedFiles.get(i) : inputFiles.get(i);
 				Path tmpFile = tmpFiles.get(i);
 
 				InputTag inputTag = remapper.createInputTag();
