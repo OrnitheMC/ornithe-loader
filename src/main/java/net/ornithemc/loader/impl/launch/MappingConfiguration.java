@@ -32,7 +32,6 @@ import net.fabricmc.mapping.tree.TinyTree;
 import net.ornithemc.loader.impl.util.ManifestUtil;
 import net.ornithemc.loader.impl.util.log.Log;
 import net.ornithemc.loader.impl.util.log.LogCategory;
-
 import net.ornithemc.nester.mapping.Nests;
 
 public final class MappingConfiguration {
@@ -131,6 +130,7 @@ public final class MappingConfiguration {
 			Log.info(LogCategory.MAPPINGS, "Mappings not present!");
 			mappings = TinyMappingFactory.EMPTY_TREE;
 		}
+
 		if (nests == null) {
 			Log.info(LogCategory.MAPPINGS, "Nests not present!");
 			nests = Nests.empty();

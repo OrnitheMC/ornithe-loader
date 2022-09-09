@@ -41,6 +41,7 @@ import net.fabricmc.tinyremapper.InputTag;
 import net.fabricmc.tinyremapper.NonClassCopyMode;
 import net.fabricmc.tinyremapper.OutputConsumerPath;
 import net.fabricmc.tinyremapper.TinyRemapper;
+
 import net.ornithemc.loader.impl.FormattedException;
 import net.ornithemc.loader.impl.launch.OrnitheLauncher;
 import net.ornithemc.loader.impl.launch.OrnitheLauncherBase;

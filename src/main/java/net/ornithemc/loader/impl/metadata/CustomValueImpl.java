@@ -24,11 +24,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 
 import net.ornithemc.loader.api.metadata.CustomValue;
 import net.ornithemc.loader.impl.lib.gson.JsonReader;
 
-import java.util.Objects;
 
 abstract class CustomValueImpl implements CustomValue {
 	static final CustomValue BOOLEAN_TRUE = new BooleanImpl(true);

@@ -21,6 +21,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.NavigableMap;
+import java.util.Optional;
+import java.util.TreeMap;
 
 import net.ornithemc.loader.api.Version;
 import net.ornithemc.loader.api.VersionParsingException;
@@ -31,10 +34,6 @@ import net.ornithemc.loader.api.metadata.ModEnvironment;
 import net.ornithemc.loader.api.metadata.ModMetadata;
 import net.ornithemc.loader.api.metadata.Person;
 import net.ornithemc.loader.impl.util.version.VersionParser;
-
-import java.util.NavigableMap;
-import java.util.Optional;
-import java.util.TreeMap;
 
 public final class BuiltinModMetadata extends AbstractModMetadata {
 	private final String id;

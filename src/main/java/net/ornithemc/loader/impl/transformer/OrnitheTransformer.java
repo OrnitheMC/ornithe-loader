@@ -21,6 +21,7 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
 
 import net.fabricmc.accesswidener.AccessWidenerClassVisitor;
+
 import net.ornithemc.api.EnvType;
 import net.ornithemc.loader.impl.OrnitheLoaderImpl;
 import net.ornithemc.loader.impl.launch.OrnitheLauncherBase;

@@ -35,6 +35,7 @@ import org.objectweb.asm.Opcodes;
 
 import net.fabricmc.accesswidener.AccessWidener;
 import net.fabricmc.accesswidener.AccessWidenerReader;
+
 import net.ornithemc.api.EnvType;
 import net.ornithemc.loader.api.LanguageAdapter;
 import net.ornithemc.loader.api.MappingResolver;

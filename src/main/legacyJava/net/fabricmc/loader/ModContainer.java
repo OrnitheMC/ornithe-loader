@@ -22,6 +22,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 import net.fabricmc.loader.metadata.LoaderModMetadata;
+
 import net.ornithemc.loader.impl.util.UrlUtil;
 
 /**
