@@ -14,7 +14,6 @@ plugins {
 	id 'org.cadixdev.licenser' version '0.6.1'
 	id 'ornithe-loom' version '1.0+' apply false
 	id 'com.github.johnrengelman.shadow' version '7.1.2'
-	id "me.modmuss50.remotesign" version "0.2.4"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -281,33 +280,12 @@ tasks.withType(GenerateModuleMetadata) {
 	enabled = false
 }
 
-def signingEnabled = ENV.SIGNING_SERVER
-File proguardFileSigned = null
-
-if (signingEnabled) {
-	proguardFileSigned = file("build/libs/ornithe-loader-${version}-signed.jar")
-
-	remoteSign {
-		requestUrl = ENV.SIGNING_SERVER
-		pgpAuthKey = ENV.SIGNING_PGP_KEY
-		jarAuthKey = ENV.SIGNING_JAR_KEY
-
-		sign(proguardFile, proguardFileSigned, "proguard").configure {
-			dependsOn proguardJar
-		}
-
-		afterEvaluate {
-			sign publishing.publications.mavenJava
-		}
-	}
-}
-
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			// add all the jars that should be included when publishing to maven
-			artifact(signingEnabled ? proguardFileSigned : proguardFile) {
-				builtBy(signingEnabled ? signProguard : proguardJar)
+			artifact(proguardFile) {
+				builtBy(proguardJar)
 				classifier = null
 			}
 			artifact(sourcesJar)
