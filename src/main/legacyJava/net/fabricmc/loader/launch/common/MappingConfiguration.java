@@ -17,6 +17,7 @@
 package net.fabricmc.loader.launch.common;
 
 import net.fabricmc.mapping.tree.TinyTree;
+
 import net.ornithemc.loader.impl.launch.OrnitheLauncherBase;
 
 /**

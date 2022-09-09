@@ -29,7 +29,6 @@ import java.util.Objects;
 import net.ornithemc.loader.api.metadata.CustomValue;
 import net.ornithemc.loader.impl.lib.gson.JsonReader;
 
-
 abstract class CustomValueImpl implements CustomValue {
 	static final CustomValue BOOLEAN_TRUE = new BooleanImpl(true);
 	static final CustomValue BOOLEAN_FALSE = new BooleanImpl(false);
