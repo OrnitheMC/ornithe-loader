@@ -9,7 +9,6 @@ pluginManagement {
 			name = "FabricMC"
 		}
 		gradlePluginPortal()
-		mavenLocal()
 	}
 }
 rootProject.name='ornithe-loader'

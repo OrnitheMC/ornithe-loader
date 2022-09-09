@@ -23,7 +23,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 
 @Mixin(value = TitleScreen.class, remap = false)
@@ -33,7 +32,7 @@ public abstract class MixinGuiMain extends Screen {
 	}
 
 	@Inject(method = "render", at = @At("RETURN"))
-	public void render(MatrixStack matrixStack, int mouseX, int mouseY, float delta, CallbackInfo info) {
-		this.textRenderer.draw(matrixStack, "Fabric Test Mod", 2, this.height - 30, -1);
+	public void render(int mouseX, int mouseY, float delta, CallbackInfo info) {
+		this.textRenderer.drawWithShadow("Ornithe Test Mod", 2, this.height - 30, -1);
 	}
 }
