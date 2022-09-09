@@ -17,6 +17,7 @@
 package net.ornithemc.loader.impl.game.minecraft.launchwrapper;
 
 import net.minecraft.launchwrapper.IClassTransformer;
+
 import net.ornithemc.api.EnvType;
 import net.ornithemc.loader.impl.OrnitheLoaderImpl;
 import net.ornithemc.loader.impl.launch.OrnitheLauncherBase;
