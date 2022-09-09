@@ -27,10 +27,6 @@ import net.minecraft.text.Text;
 
 @Mixin(value = TitleScreen.class, remap = false)
 public abstract class MixinGuiMain extends Screen {
-	protected MixinGuiMain(Text textComponent_1) {
-		super(textComponent_1);
-	}
-
 	@Inject(method = "render", at = @At("RETURN"))
 	public void render(int mouseX, int mouseY, float delta, CallbackInfo info) {
 		this.textRenderer.drawWithShadow("Ornithe Test Mod", 2, this.height - 30, -1);
