@@ -106,7 +106,7 @@ class OrnitheMainWindow {
 		window.setTitle(tree.title);
 
 		try {
-			Image image = loadImage("/ui/icon/fabric_x128.png");
+			Image image = loadImage("/ui/icon/ornithe_x128.png");
 			window.setIconImage(image);
 			setTaskBarImage(image);
 		} catch (IOException e) {
