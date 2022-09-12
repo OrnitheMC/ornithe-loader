@@ -252,7 +252,7 @@ public final class OrnitheLoaderImpl extends net.fabricmc.loader.FabricLoader {
 
 		if (remapRegularMods) {
 			if (System.getProperty(SystemProperties.REMAP_CLASSPATH_FILE) == null) {
-				Log.warn(LogCategory.MOD_REMAP, "Runtime mod remapping disabled due to no fabric.remapClasspathFile being specified. You may need to update loom.");
+				Log.warn(LogCategory.MOD_REMAP, "Runtime mod remapping disabled due to no ornithe.remapClasspathFile being specified. You may need to update loom.");
 			} else {
 				RuntimeModRemapper.remap(modCandidates, cacheDir.resolve(TMP_DIR_NAME), outputdir);
 			}
