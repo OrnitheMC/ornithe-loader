@@ -27,7 +27,7 @@ import net.ornithemc.loader.impl.launch.OrnitheLauncher;
 import net.ornithemc.loader.impl.util.Arguments;
 import net.ornithemc.loader.impl.util.LoaderUtil;
 
-public interface GameProvider { // name directly referenced in net.fabricmc.loader.impl.launch.knot.Knot.findEmbedddedGameProvider() and service loader records
+public interface GameProvider { // name directly referenced in net.ornithemc.loader.impl.launch.knot.Knot.findEmbedddedGameProvider() and service loader records
 	String getGameId();
 	String getGameName();
 	String getRawGameVersion();
