@@ -35,6 +35,7 @@ import net.fabricmc.tinyremapper.TinyRemapper;
 import net.ornithemc.api.EnvType;
 import net.ornithemc.loader.impl.util.UrlConversionException;
 import net.ornithemc.loader.impl.util.UrlUtil;
+import net.ornithemc.nester.Nester;
 
 enum LoaderLibrary {
 	ORNITHE_LOADER(UrlUtil.LOADER_CODE_SOURCE),
@@ -49,6 +50,7 @@ enum LoaderLibrary {
 	ASM_UTIL(CheckClassAdapter.class),
 	SAT4J_CORE(ContradictionException.class),
 	SAT4J_PB(SolverFactory.class),
+	NESTER(Nester.class),
 	SERVER_LAUNCH("ornithe-server-launch.properties", EnvType.SERVER), // installer generated jar to run setup loader's class path
 	SERVER_LAUNCHER("net/ornithemc/installer/ServerLauncher.class", EnvType.SERVER); // installer based launch-through method
 
