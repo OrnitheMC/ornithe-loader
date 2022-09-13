@@ -6,7 +6,7 @@
     "common": [
       {
         "name": "net.ornithemc:nester:0.2.5",
-        "url": "https://maven.ornithemc.net/releases"
+        "url": "https://maven.ornithemc.net/releases/"
       },
       {
         "name": "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
