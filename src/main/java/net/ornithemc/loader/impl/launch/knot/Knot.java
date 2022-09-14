@@ -259,7 +259,7 @@ public final class Knot extends OrnitheLauncherBase {
 	@Override
 	public String getTargetNamespace() {
 		// TODO: Won't work outside of Yarn
-		return isDevelopment ? "named" : "intermediary";
+		return isDevelopment ? "named" : "calamus";
 	}
 
 	@Override
