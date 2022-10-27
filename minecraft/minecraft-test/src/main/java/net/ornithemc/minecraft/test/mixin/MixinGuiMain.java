@@ -17,5 +17,4 @@
 package net.ornithemc.minecraft.test.mixin;
 
 public class MixinGuiMain {
-
 }
