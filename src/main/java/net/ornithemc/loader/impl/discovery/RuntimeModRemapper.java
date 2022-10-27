@@ -66,7 +66,7 @@ public final class RuntimeModRemapper {
 		OrnitheLauncher launcher = OrnitheLauncherBase.getLauncher();
 
 		TinyRemapper remapper = TinyRemapper.newRemapper()
-				.withMappings(TinyRemapperMappingsHelper.create(launcher.getMappingConfiguration().getMappings(), "intermediary", launcher.getTargetNamespace()))
+				.withMappings(TinyRemapperMappingsHelper.create(launcher.getMappingConfiguration().getMappings(), "calamus", launcher.getTargetNamespace()))
 				.renameInvalidLocals(false)
 				.build();
 
