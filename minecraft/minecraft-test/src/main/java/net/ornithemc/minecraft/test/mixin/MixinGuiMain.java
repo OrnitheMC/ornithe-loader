@@ -16,5 +16,18 @@
 
 package net.ornithemc.minecraft.test.mixin;
 
-public class MixinGuiMain {
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.TitleScreen;
+
+@Mixin(value = TitleScreen.class, remap = false)
+public abstract class MixinGuiMain extends Screen {
+	@Inject(method = "render", at = @At("RETURN"))
+	public void render(int mouseX, int mouseY, float delta, CallbackInfo info) {
+		this.textRenderer.drawWithShadow("Ornithe Test Mod", 2, this.height - 30, -1);
+	}
 }
