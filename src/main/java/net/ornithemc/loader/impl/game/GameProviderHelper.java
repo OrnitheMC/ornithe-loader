@@ -271,7 +271,7 @@ public final class GameProviderHelper {
 	}
 
 	private static void deobfuscate0(List<Path> inputFiles, List<Path> nestedFiles, List<Path> outputFiles, List<Path> tmpFiles, TinyTree mappings, Nests nests, String targetNamespace, OrnitheLauncher launcher) throws IOException {
-		boolean doNesting = !nests.get().isEmpty();
+		boolean doNesting = !nests.isEmpty();
 
 		if (doNesting) {
 			for (int i = 0; i < inputFiles.size(); i++) {
