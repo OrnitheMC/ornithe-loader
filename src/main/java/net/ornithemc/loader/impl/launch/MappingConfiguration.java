@@ -32,7 +32,7 @@ import net.fabricmc.mapping.tree.TinyTree;
 import net.ornithemc.loader.impl.util.ManifestUtil;
 import net.ornithemc.loader.impl.util.log.Log;
 import net.ornithemc.loader.impl.util.log.LogCategory;
-import net.ornithemc.nester.mapping.Nests;
+import net.ornithemc.nester.nest.Nests;
 
 public final class MappingConfiguration {
 	private boolean initialized;

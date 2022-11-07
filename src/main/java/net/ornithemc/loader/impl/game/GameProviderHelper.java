@@ -54,7 +54,7 @@ import net.ornithemc.loader.impl.util.log.Log;
 import net.ornithemc.loader.impl.util.log.LogCategory;
 import net.ornithemc.loader.impl.util.mappings.TinyRemapperMappingsHelper;
 import net.ornithemc.nester.Nester;
-import net.ornithemc.nester.mapping.Nests;
+import net.ornithemc.nester.nest.Nests;
 
 public final class GameProviderHelper {
 	private GameProviderHelper() { }
@@ -279,7 +279,7 @@ public final class GameProviderHelper {
 				Path nestedFile = nestedFiles.get(i);
 
 				if (!Files.exists(nestedFile)) {
-					Nester.fixJar(inputFile, nestedFile, nests);
+					Nester.nestJar(new Nester.Options().silent(true), inputFile, nestedFile, nests);
 				}
 			}
 		}

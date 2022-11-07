@@ -8,7 +8,7 @@
         "name": "net.minecraft:launchwrapper:1.12"
       },
       {
-        "name": "net.ornithemc:nester:0.4.2",
+        "name": "net.ornithemc:nester:1.0.0",
         "url": "https://maven.ornithemc.net/releases/"
       },
       {
